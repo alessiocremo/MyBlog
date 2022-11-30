@@ -15,7 +15,21 @@ export default function Post() {
             <hr />
             <span className="postDate">1 hour ago</span>
         </div>
-
+        <p className="postDesc">
+        If you could see that I'm the one
+        Who understands you
+        Been here all along
+        So, why can't you see?
+        You belong with me
+        You belong with meIf you could see that I'm the one
+        Who understands you
+        Been here all along
+        So, why can't you see?
+        You belong with me
+        You belong with me
+        You belong with me
+        You belong with me
+        </p>
     </div>
   )
 }

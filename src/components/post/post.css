@@ -43,3 +43,17 @@
     color: #999;
     margin-top: 15px;
 }
+
+
+.postDesc{
+    font-family: 'Lora', serif;
+    font-size: 14px;
+    color: #555;
+    margin-top: 10px;
+    line-height: 24px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+}

@@ -1,11 +1,11 @@
-import Home from "./pages/home/Home.jsx";
-import TopBar from "./topbar/TopBar.jsx";
+import TopBar from "./components/topbar/TopBar.jsx";
+import Single from "./pages/single/Single.jsx";
 
 function App() {
   return (
     <>
       <TopBar/>
-      <Home/>
+      <Single/>
     </>
   );
 }
