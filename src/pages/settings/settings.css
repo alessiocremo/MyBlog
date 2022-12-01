@@ -1,0 +1,100 @@
+.settings{
+    display: flex;
+}
+
+
+.settingsWrapper{
+    flex: 9;
+    padding: 20px;
+}
+
+#fileInput{
+    display: none;
+}
+
+.settingsTitle{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.settingsUpdateTitle,.settingsDeleteTitle{
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: rgb(94, 67, 21);
+    font-weight: bolder;
+}
+
+.settingsDeleteTitle{
+    font-size: 14px;
+    cursor: pointer;
+}
+
+
+.settingsForm{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.settingsProfilePicture{
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.settingsProfilePictureImg{
+    width: 100px;
+    height: 100px;
+    border: 20%;
+    object-fit: cover;
+}
+
+
+.settingsProfilePictureIcon{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    margin-left: 10px;
+    background-color: beige;
+    color: rgb(155, 111, 35);
+    border-radius: 10px;
+    border: 1px solid brown;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.settingsForm > label {
+    font-weight: bold;
+    color: rgb(155, 111, 35);
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+
+.settingsFormSubmit {
+    background-color: beige;
+    color: rgb(155, 111, 35);
+    font-weight: bold;
+    border: 1px solid brown;
+    margin-top: 20px;
+    align-self: center;
+    width: 80px;
+    border-radius: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.settingsForm > input {
+    border: none;
+    border-bottom: 1px solid rgba(165,42,42,0.3);
+    color: grey;
+    margin-top: 10px;
+    height: 30px;
+    outline: none;
+}
+
