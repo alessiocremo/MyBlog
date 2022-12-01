@@ -1,0 +1,72 @@
+.login{
+    height: calc(100vh - 50px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: url("https://c4.wallpaperflare.com/wallpaper/858/535/663/movies-harry-potter-and-the-deathly-hallows-lord-voldemort-wallpaper-preview.jpg");
+    background-size: cover;
+    background-position: 50% 50%;
+    align-items:flex-start;
+
+}
+
+.loginTitle {
+    font-size: 100px;
+    color: rgb(155, 111, 35);
+    font-weight: bolder;
+    margin-left: 100px;
+
+}
+
+.loginForm {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 100px;
+}
+
+.loginForm > label {
+    margin: 10px 0;
+    background-color: beige;
+}
+
+.loginInput{
+    padding: 10px;
+    background-color: beige;
+    border: none;
+}
+
+
+.loginButton {
+    margin-top: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: beige;
+    color: rgb(155, 111, 35);
+    border: 1px solid brown;
+    width: 80px;
+    border-radius: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    align-self: center;
+}
+
+
+.loginRegisterButton {
+    margin-top: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    background-color: beige;
+    color: rgb(155, 111, 35);
+    border: 1px solid brown;
+    width: 80px;
+    border-radius: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.register {
+    display: flex;
+    margin-left: 100px;
+    color: rgb(155, 111, 35);
+}
