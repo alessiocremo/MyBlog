@@ -15,13 +15,14 @@
     background-position: 50% 50%;
     align-items: center;
     color: rgb(155, 111, 35);
-    font-family: hpfont;
 }
 
 
 .registerTitle {
-    font-size: 120px;
+    font-size: 170px;
     font-weight: bolder;
+    font-family: hpfont;
+
 }
 
 .registerForm {

@@ -1,3 +1,9 @@
+@font-face {
+    font-family: hpfont;
+    src: url(../../HARRYP__.TTF)
+}
+
+
 .settings{
     display: flex;
 }
