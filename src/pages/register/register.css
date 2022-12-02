@@ -1,0 +1,103 @@
+@font-face {
+    font-family: hpfont;
+    src: url(../../HARRYP__.TTF)
+}
+
+
+
+.register{
+    height: calc(100vh - 50px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background:  linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6))  ,url("https://c4.wallpaperflare.com/wallpaper/494/399/714/harry-potter-hogwarts-castle-wallpaper-preview.jpg");
+    background-size: cover;
+    image-rendering: -webkit-optimize-contrast;
+    background-position: 50% 50%;
+    align-items: center;
+    color: rgb(155, 111, 35);
+    font-family: hpfont;
+}
+
+
+.registerTitle {
+    font-size: 120px;
+    font-weight: bolder;
+}
+
+.registerForm {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.registerForm > label > span {
+    font-size: 25px;
+    background-color: beige;
+    font-weight: bold;
+    border-radius: 8px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+.registerForm > label {
+    margin-bottom: 8px;
+}
+
+::placeholder {
+    color: rgb(155, 111, 35);
+}
+
+.registerInput{
+    padding: 10px;
+    background-color: beige;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    color: rgb(155, 111, 35);
+}
+
+
+.registerButton {
+    margin-top: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: beige;
+    color: rgb(155, 111, 35);
+    border: 1px solid brown;
+    width: 80px;
+    border-radius: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    align-self: center;
+}
+
+
+.registerLoginButton {
+    cursor: pointer;
+    font-weight: bold;
+    background-color: beige;
+    color: rgb(155, 111, 35);
+    border: 1px solid brown;
+    width: 80px;
+    border-radius: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+
+.login {
+    margin-top: 15px;
+    display: flex;
+    color: rgb(155, 111, 35);
+    justify-content: center;
+    align-items: center;
+}
+
+.alreadyAMemberText {
+    margin-right: 10px;
+    font-weight: bold;
+}
