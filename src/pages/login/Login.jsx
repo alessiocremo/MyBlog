@@ -17,11 +17,11 @@ export default function Login() {
         </form>
         <div className="registerL">
                 <div className='notAMemberText'>Not a member?</div>
-                <button className="loginRegisterButton">
-                <Link to="/register" className='link'>
-                                    Register
-                </Link>
-                </button>
+                  <Link to="/register" className='link'>
+                    <button className="loginRegisterButton">
+                      Register
+                    </button>
+                  </Link>
         </div>
     </div>
   )

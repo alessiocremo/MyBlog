@@ -17,12 +17,12 @@ export default function Register() {
             <button className="registerButton">Register</button>
         </form>
         <div className="loginR">
-                <div className='alreadyAMemberText'>Already a member?</div>
-                <button className="registerLoginButton">
-                  <Link to="/login" className='link' >
-                                      Login
-                  </Link>
-                </button>
+          <div className='alreadyAMemberText'>Already a member?</div>
+            <Link to="/login" className='link' >
+              <button className="registerLoginButton">
+                Login
+              </button>
+            </Link>
         </div>
     </div>
   )
