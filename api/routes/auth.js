@@ -10,84 +10,63 @@ const jwt = require('jsonwebtoken')
 
 router.post("/register", async (req,res) =>{
     const {username, email, password } = req.body
+    console.log("cristo")
 
-    if(!username || !email || !password){
-        res.status(400).json("Please provide a username, an email and a password")
-        // throw new Error ('Please provide a username, an email and a password')
-        return -1;
+        if(!username || !email || !password){
+            res.status(400).json("Please insert a username, an email and a passowrd")
+            console.log("Please insert a username, an email and a passowrd")
+            return -1;
+        }
+    
+        const usernameExists = await User.findOne({username})
+    
+        if (usernameExists){
+            res.status(400).json("A user with this username already exists");
+            console.log('A user with this username already exists');
+            return -2;
+        }
+
+        const emailExists = await User.findOne({email})
+    
+        if (emailExists){
+            res.status(400).json("A user with this email already exists")
+            console.log('A user with this email already exists');
+            return -2;
+        }
+
+
+        const salt = await bcrypt.genSalt(10);
+        const hashedPassword = await bcrypt.hash(req.body.pass);
+        const newUser = new User({
+            username: req.body.username,
+            email: req.body.mail,
+            password: req.body.password,
+        });
+
+        const user = await newUser.save();
+        res.status(200).json(user);
     }
-
-
-    const userExists = await User.findOne({email})
-
-    if (userExists){
-        res.status(400).json("A user with this email already exists")
-        // throw new Error ('A user with this email already exists')
-        return -2;
-
-    }
-
-    const userExists2 = await User.findOne({username})
-
-    if (userExists2){
-        res.status(400).json("A user with this username already exists")
-        // throw new Error ('A user with this username already exists')
-        return -3;
-    }
-
-    const salt = await bcrypt.genSalt(10)
-    const hashedPassword = await bcrypt.hash(password, salt)
-
-    const user = await User.create({
-        username,
-        email,
-        password: hashedPassword
-    })
-
-    if(user) {
-        res.status(201).json({
-            _id: user.id,
-            username: user.username,
-            email: user.email,
-            token: generateToken(user._id)
-        })
-    } else {
-        res.status(400).json("Invalid User data")
-        // throw new Error ('Invalid User data')
-        return -4;
-
-    }
-})
+);
 
 
 //LOGIN
 
 router.post("/login", async(req,res) => {
-    const {email,password} = req.body
+    
 
-    //Check for user email
-    const user = await User.findOne({email})
+    try{
+        const user = await User.findOne({username: req.body.username})
+        !user && res.status(400).json("Wrong credentials");
 
-    //Check the password
-    if(user && (await bcrypt.compare(password, user.password))) {
-        res.json({
-            _id: user.id,
-            name: user.name,
-            email: user.email,
-            token: generateToken(user._id)
-        })
-    } else {
-        res.status(400).json('Invalid credentials')
-        return -5;
-        // throw new Error('Invalid credentials')
+        const validate = await bcrypt.compare(req.body.password, user.password);
+        !validated && res.status(400).json("Wrong credentials");
+
+        res.status(200).json(user)
+
+    } catch(err) {
+        res.status(500).json(err);
     }
+
 })
-
-
-
-const generateToken = (id) => {
-    return jwt.sign({id}, process.env.JWT_SECRET, {expiresIn: '30d'})
-}
-
 
 module.exports = router;
