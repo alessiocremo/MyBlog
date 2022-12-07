@@ -1,30 +1,45 @@
-import './singlePost.css'
-import React from "react";
+import "./singlePost.css"
+import axios from "axios";
+import React, { useState } from "react";
+import { useLocation } from "react-router";
+import { useEffect } from "react";
 
 
 export default function SinglePost() {
+   
+    const location = useLocation()
+    const path = location.pathname.split("/")[2];
+    const [post, setPost] = useState({})
+
+    useEffect(() => {
+        const getPost = async () => {
+            const res = await axios.get ("/posts/" + path);
+            console.log(res.data)
+            setPost(res.data)
+        };
+        getPost();
+      }, [path]);
+
   return (
     <div className='singlePost'>
         <div className="singlePostWrapper">
-            <img src="https://c4.wallpaperflare.com/wallpaper/1021/117/306/movies-harry-potter-and-the-deathly-hallows-lord-voldemort-draco-malfoy-wallpaper-preview.jpg" alt="voldemortPic" className="singlePostImg" />
+            {post.photo && 
+            <img src={post.photo} alt="" className="singlePostImg" />
+            }
         </div>
         <h1 className="singlePostTitle">
-            He is back.
+            {post.title}
             <div className="singlePostEdit">
                 <i class="singlePostIcon fa-solid fa-wand-sparkles"></i>
                 <i class="singlePostIcon fa-solid fa-trash"></i>
             </div>
         </h1>
         <div className="singlePostInfo">
-            <span className='singlePostAuthor'>Author: <b>Dark Lord</b></span>
-            <span className='singlePostDate'>1 hour ago</span>
+            <span className='singlePostAuthor'>Author: <b> {post.username} </b></span>
+            <span className='singlePostDate'>{new Date(post.createdAt).toDateString()}</span>
         </div>
         <p className='singlePostDesc'>
-            “I’d like to say something. Doesn’t matter that Harry’s gone. People die everyday—friends..family. Yeah, we lost Harry tonight. But he’s still with us…in here. So is Fred, Remus, Tonks…all of them. They didn’t die in vain! But you will! Cause you’re wrong! Harry’s heart did beat for us! For all of us! It’s not over!”
-            “I’d like to say something. Doesn’t matter that Harry’s gone. People die everyday—friends..family. Yeah, we lost Harry tonight. But he’s still with us…in here. So is Fred, Remus, Tonks…all of them. They didn’t die in vain! But you will! Cause you’re wrong! Harry’s heart did beat for us! For all of us! It’s not over!”
-            “I’d like to say something. Doesn’t matter that Harry’s gone. People die everyday—friends..family. Yeah, we lost Harry tonight. But he’s still with us…in here. So is Fred, Remus, Tonks…all of them. They didn’t die in vain! But you will! Cause you’re wrong! Harry’s heart did beat for us! For all of us! It’s not over!”
-            “I’d like to say something. Doesn’t matter that Harry’s gone. People die everyday—friends..family. Yeah, we lost Harry tonight. But he’s still with us…in here. So is Fred, Remus, Tonks…all of them. They didn’t die in vain! But you will! Cause you’re wrong! Harry’s heart did beat for us! For all of us! It’s not over!”
-            “I’d like to say something. Doesn’t matter that Harry’s gone. People die everyday—friends..family. Yeah, we lost Harry tonight. But he’s still with us…in here. So is Fred, Remus, Tonks…all of them. They didn’t die in vain! But you will! Cause you’re wrong! Harry’s heart did beat for us! For all of us! It’s not over!”
+           {post.desc}
         </p>
     </div>
   )

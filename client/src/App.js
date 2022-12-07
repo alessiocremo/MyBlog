@@ -6,7 +6,7 @@ import {
 
 import Home from "./pages/home/Home.jsx"
 import React from "react";
-import ReactDOM from 'react-dom';
+// import ReactDOM from 'react-dom';
 import TopBar from "./components/topbar/TopBar.jsx";
 import Login from "./pages/login/Login.jsx";
 import Register from "./pages/register/Register.jsx";
