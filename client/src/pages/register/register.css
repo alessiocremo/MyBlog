@@ -90,7 +90,7 @@
 
 
 .loginR {
-    margin-top: 15px;
+    margin-top: 25px;
     display: flex;
     color: rgb(155, 111, 35);
     align-items: center;
@@ -99,4 +99,10 @@
 .alreadyAMemberText {
     margin-right: 10px;
     font-weight: bold;
+}
+
+.wentWrong{
+    color: red;
+    align-self: center;
+
 }
