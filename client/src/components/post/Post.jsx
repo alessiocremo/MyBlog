@@ -1,36 +1,31 @@
 import "./post.css"
 import React from "react";
+import {Link} from "react-router-dom"
 
 
-export default function Post() {
+export default function Post({post}) {
   return (
     <div className="post">
-        <img src="https://c4.wallpaperflare.com/wallpaper/95/92/857/harry-potter-hermione-granger-emma-watson-hd-wallpaper-preview.jpg" alt="HermionePic" className="postImg"/>
+      {post.photo && (
+        <img className="postImg" src={post.photo} alt="" />
+      )}
         <div className="postInfo">
             <div className="postCats">
-                <span className="postCat">Music</span>
-                <span className="postCat">Life</span>
+              {post.categories.map((c)=>(
+                <span className="postCat">{c.name}</span>
+                ))}
             </div>
+            <Link to = {`/post/${post._id}`} className="postLink" style={{textDecoration:"none", color:"inherit"}} >
             <span className="postTitle">
-                You belong with me
+                {post.title}
             </span>
+            </Link>
+            
             <hr />
-            <span className="postDate">1 hour ago</span>
+            <span className="postDate">{ new Date(post.createdAt).toDateString()}</span>
         </div>
         <p className="postDesc">
-        If you could see that I'm the one
-        Who understands you
-        Been here all along
-        So, why can't you see?
-        You belong with me
-        You belong with meIf you could see that I'm the one
-        Who understands you
-        Been here all along
-        So, why can't you see?
-        You belong with me
-        You belong with me
-        You belong with me
-        You belong with me
+          {post.desc}
         </p>
     </div>
   )
