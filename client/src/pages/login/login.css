@@ -18,6 +18,8 @@
 }
 
 
+
+
 .loginTitle {
     font-size: 170px;
     font-weight: bolder;
@@ -62,6 +64,20 @@
 }
 
 
+
+.loginRegisterButton {
+    cursor: pointer;
+    font-weight: bold;
+    background-color: beige;
+    color: rgb(155, 111, 35);
+    border: 1px solid brown;
+    width: 80px;
+    border-radius: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+
 .loginButton {
     margin-top: 13px;
     font-weight: bold;
@@ -76,18 +92,11 @@
     align-self: center;
 }
 
-
-.loginRegisterButton {
-    cursor: pointer;
-    font-weight: bold;
-    background-color: beige;
-    color: rgb(155, 111, 35);
-    border: 1px solid brown;
-    width: 80px;
-    border-radius: 10px;
-    padding-top: 5px;
-    padding-bottom: 5px;
+.loginButton:disabled{
+    transition: 0.3s;
+    background-color:   rgb(204, 178, 133);
 }
+
 
 
 .registerL {

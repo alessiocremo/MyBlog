@@ -13,11 +13,13 @@ import Register from "./pages/register/Register.jsx";
 import Settings from "./pages/settings/Settings.jsx";
 import Single from "./pages/single/Single.jsx";
 import Write from "./pages/write/Write.jsx";
+import { ContextProvider } from "./context/Context.js";
 
 
 function App() {
   const user = false;
   return (
+    <ContextProvider>
     <BrowserRouter>
       <TopBar/>
       <Routes>
@@ -28,7 +30,9 @@ function App() {
         <Route path='/settings' element ={user ? <Settings/>: <Login/>}/>
         <Route path='/post/:postId' element ={<Single/>}/>
       </Routes>
-    </BrowserRouter>
+    </BrowserRouter>  
+    </ContextProvider>
+    
   );
 }
 
