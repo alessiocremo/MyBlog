@@ -35,7 +35,7 @@
 
 .loginForm > label > span {
     font-size: 25px;
-    background-color: beige;
+    background-color: #e4dab9;
     font-weight: bold;
     border-radius: 8px;
     padding-left: 5px;
@@ -54,7 +54,7 @@
 
 .loginInput{
     padding: 10px;
-    background-color: beige;
+    background-color: #e4dab9;
     border: none;
     outline: none;
     border-radius: 8px;
@@ -68,7 +68,7 @@
 .loginRegisterButton {
     cursor: pointer;
     font-weight: bold;
-    background-color: beige;
+    background-color: #e4dab9;
     color: rgb(155, 111, 35);
     border: 1px solid brown;
     width: 80px;
@@ -82,7 +82,7 @@
     margin-top: 13px;
     font-weight: bold;
     cursor: pointer;
-    background-color: beige;
+    background-color: #e4dab9;
     color: rgb(155, 111, 35);
     border: 1px solid brown;
     width: 80px;
@@ -112,4 +112,7 @@
     font-weight: bold;
 }
 
-
+.wentWrong{
+    color: red;
+    align-self: center;
+}

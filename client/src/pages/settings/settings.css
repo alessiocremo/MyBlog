@@ -63,7 +63,7 @@
     height: 25px;
     border-radius: 50%;
     margin-left: 10px;
-    background-color: beige;
+    background-color: #e4dab9;
     color: rgb(155, 111, 35);
     border-radius: 10px;
     border: 1px solid brown;
@@ -83,7 +83,7 @@
 
 
 .settingsFormSubmit {
-    background-color: beige;
+    background-color: #e4dab9;
     color: rgb(155, 111, 35);
     font-weight: bold;
     border: 1px solid brown;

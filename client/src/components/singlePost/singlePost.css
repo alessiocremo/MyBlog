@@ -1,5 +1,7 @@
 .singlePost {
     flex:9;
+    background-color: rgba(228,218,185,0.3);
+
 }
 
 .singlePostWrapper {

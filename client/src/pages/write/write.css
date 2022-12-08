@@ -27,7 +27,7 @@
 .writeIcon{
     width: 25px;
     height: 25px;
-    background-color: beige;
+    background-color: #e4dab9;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -65,7 +65,7 @@
     top:20px;
     right: 50px;
     color: rgb(155, 111, 35);
-    background-color: beige;
+    background-color: #e4dab9;
     border-radius: 10px;
     border: 1px solid brown;
     cursor: pointer;

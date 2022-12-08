@@ -12,25 +12,28 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-family: 'Lora', serif;
     color: grey;
 }
 
 .headerTitleSmall{
+    font-family: 'Josefin Sans', sans-serif;
     position: absolute;
-    top: 13%;
-    font-size: 20px;
+    top: 21%;
+    font-size: 25px;
 }
 
 .headerTitleLarge {
+    font-family: hpfont;
     position: absolute;
-    top:13%;
+    top:10%;
     font-size: 100px;
 }
 
 .headerImg{
+   -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%,rgba(0, 0, 0, 0.95 ) 100%);
     width: 100%;
-    height: 450px;
-    margin-top: 60px;
+    height: 480px;
+    margin-top: 10px;
+    margin-bottom: 20px;
     object-fit: cover;
 }

@@ -1,5 +1,5 @@
 import './login.css'
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { Context } from '../../context/Context';
@@ -12,10 +12,13 @@ export default function Login() {
   const userRef = useRef();
   const passwordRef = useRef();
   const  {dispatch, isFetching} = useContext(Context)
+  const [error, setError] = useState(false)
+
 
 
   const handleSubmit = async (e)=>{
     e.preventDefault();
+    setError(false);
     dispatch({type:"LOGIN_START"});
     try{
       const res = await axios.post("/auth/login", {
@@ -26,6 +29,7 @@ export default function Login() {
     
     }catch(err){
       dispatch({type:"LOGIN_FAILURE"})
+      setError(true)
     }
   }
 
@@ -39,6 +43,8 @@ export default function Login() {
             <label><span>Password</span></label>
             <input type="password" className='loginInput' placeholder='Enter your password...' ref={passwordRef} />
             <button className="loginButton"  type='submit' disabled={isFetching} >Login</button>
+            {error && <span class="wentWrong" >something went wrong</span>}
+
         </form>
         <div className="registerL">
                 <div className='notAMemberText'>Not a member?</div>

@@ -1,23 +1,59 @@
 import './write.css'
-import React from "react";
+import React, { useContext } from "react";
+import { useState } from 'react';
+import axios from 'axios';
+import { Context } from '../../context/Context';
 
 
 export default function Write() {
+  const [title, setTitle] = useState("")
+  const [desc, setDesc] = useState("")
+  const [file, setFile] = useState("")
+  const {user} = useContext(Context)
+
+  const handleSubmit = async (e)=> {
+    e.preventDefault();
+    const newPost = {
+      username: user.username,
+      title,
+      desc,
+    };
+
+      if (file) {
+        const data =new FormData();
+        const filename = Date.now() + file.name;
+        data.append("name", filename);
+        data.append("file", file);
+        newPost.photo = filename;
+        try {
+          await axios.post("/upload", data);
+        } catch (err) {}
+      }
+      try {
+        const res = await axios.post("/posts", newPost);
+        window.location.replace("/post/" + res.data._id);
+      } catch (err) {}
+    };
+
+
   return (
     <div className='write'>
-      <img className='writeImg' src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/ebb844d9-5471-461a-bfde-a00ea8b326cb/d9pjiau-ed23f8e6-a071-4aaf-8705-622e31fc1def.png/v1/fill/w_1192,h_670,q_70,strp/wallpaper_deathly_hallows__harry_potter__by_suzigan96_d9pjiau-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTA4MCIsInBhdGgiOiJcL2ZcL2ViYjg0NGQ5LTU0NzEtNDYxYS1iZmRlLWEwMGVhOGIzMjZjYlwvZDlwamlhdS1lZDIzZjhlNi1hMDcxLTRhYWYtODcwNS02MjJlMzFmYzFkZWYucG5nIiwid2lkdGgiOiI8PTE5MjAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.omQUFsHNOvNi68tXGB_cp3edXrJ7Uc5eWS9oMmflrmI" alt="" />
-        <form className="writeForm">
+      {file && 
+      <img className='writeImg' src={URL.createObjectURL(file)} alt="" />
+
+      }
+        <form className="writeForm" onSubmit={handleSubmit}>
             <div className="writeFormGroup">
               <label htmlFor="fileInput">
                 <i class="writeIcon fa-solid fa-plus"></i>
               </label>
-              <input type="file" id="fileInput"/>
-              <input type="text" placeholder='Title' className='writeInput' autoFocus={true}/>
+              <input type="file" id="fileInput"  style={{display:"none"}} onChange={e=>setFile(e.target.files[0])}  />
+              <input type="text" placeholder='Title' className='writeInput' autoFocus={true}   onChange={e=>setTitle(e.target.value)}/>
             </div>
             <div className="writeFormGroup">
-              <textarea placeholder='Tell your story...' type="text" className='writeInput writeText'></textarea>
+              <textarea placeholder='Tell your story...' type="text" className='writeInput writeText' onChange={e=>setDesc(e.target.value)}></textarea>
             </div>
-            <button className="writeSubmit">Publish</button>
+            <button className="writeSubmit" type='submit'>Publish</button>
         </form>
     </div>
   )

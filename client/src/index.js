@@ -7,7 +7,7 @@ import { ContextProvider } from './context/Context';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
-    // <ContextProvider>
+        <ContextProvider>
         <App />
-    // </ContextProvider>
+        </ContextProvider>
 );

@@ -10,7 +10,7 @@
     top: 0;
     display: flex;
     font-family: 'Josefin Sans', sans-serif;
-    background-color: bisque;
+    background-color: #e4dab9;
     z-index: 999;
 }
 
@@ -35,11 +35,12 @@
 
 
 .topCenter {
-    margin-left: 50px;
-    flex:6;
+    margin-left: 70px;
+    flex:4;
+    width: 50px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
 }
 
 .profilePic{
