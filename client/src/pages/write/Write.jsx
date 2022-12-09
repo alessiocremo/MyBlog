@@ -8,17 +8,33 @@ import { Context } from '../../context/Context';
 export default function Write() {
   const [title, setTitle] = useState("")
   const [desc, setDesc] = useState("")
-  const [file, setFile] = useState("")
+  const [file, setFile] = useState(null)
   const {user} = useContext(Context)
+  const defaultTitle=user.username + "'s post"
+  const PF = "http://localhost:5000/images/"
+
 
   const handleSubmit = async (e)=> {
     e.preventDefault();
-    const newPost = {
-      username: user.username,
-      title,
-      desc,
-    };
+    let newPost;
+    
+    if(title===""){
+      newPost = {
+        username: user.username,
+        title: defaultTitle,
+        desc,
+      }
+    }
 
+    else {
+      newPost = {
+        username: user.username,
+        title,
+        desc,
+      };  
+    }
+    
+    
       if (file) {
         const data =new FormData();
         const filename = Date.now() + file.name;
@@ -29,18 +45,23 @@ export default function Write() {
           await axios.post("/upload", data);
         } catch (err) {}
       }
+      else {
+        newPost.photo = "defaultic.jpg"
+      }
       try {
         const res = await axios.post("/posts", newPost);
         window.location.replace("/post/" + res.data._id);
       } catch (err) {}
-    };
+    };  //function ends here
 
 
   return (
     <div className='write'>
       {file && 
       <img className='writeImg' src={URL.createObjectURL(file)} alt="" />
-
+      }
+      {
+       !file &&  <img className='writeImg' src={PF + "defaultPic.jpg"} alt="" />
       }
         <form className="writeForm" onSubmit={handleSubmit}>
             <div className="writeFormGroup">

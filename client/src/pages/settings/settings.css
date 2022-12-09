@@ -87,12 +87,13 @@
     color: rgb(155, 111, 35);
     font-weight: bold;
     border: 1px solid brown;
-    margin-top: 20px;
+    margin-top: 90px;
     align-self: center;
     width: 80px;
     border-radius: 10px;
     padding-top: 5px;
     padding-bottom: 5px;
+    cursor: pointer;
 }
 
 .settingsForm > input {
