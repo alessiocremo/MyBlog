@@ -4,8 +4,8 @@
 }
 
 .post{
-    width: 385px;
     margin: 0px 25px 45px 25px;
+    width: 385px;
 }
 
 
@@ -14,54 +14,57 @@
     height: 280px;
     object-fit: cover;
     border-radius: 10px;
+    margin-bottom: 10px;
 }
 
 .postInfo {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
 
-.postCat{
+.postCategories{
     font-family: 'Dosis', sans-serif;
-    font-size: 11px;
-    color: #be9656;
-    line-height: 20px;
-    margin-top: 15px;
-    margin-right: 10px;
+    font-size: 18px;
+    color: #bea552;
     cursor: pointer;
+    margin-bottom: 10px;
 }
 
 
 .postTitle {
     font-family: 'Lora', serif;
-    font-size: 24px;
-    font-weight: 700;
-    margin-top: 15px;
+    font-size: 28px;
+    font-weight: 900;
+    color:silver;
 }
 
 .postDate {
     font-family: 'Dosis', sans-serif;
     font-style: italic;
     font-size: 13px;
-    color: #999;
+    color: silver;
     margin-top: 15px;
 }
 
-
-.postLink{
-    
+.postUsername{
+    color: #bea552;
 }
 
+
 .postDesc{
+    width: 200px;
     font-family: 'Lora', serif;
     font-size: 14px;
-    color: #555;
+    font-style: italic;
+    color:  #f5efe1;
     margin-top: 10px;
     line-height: 24px;
     overflow: hidden;
     text-overflow: ellipsis;
+    justify-self: center;
     display: -webkit-box;
     -webkit-line-clamp: 5;
     -webkit-box-orient: vertical;

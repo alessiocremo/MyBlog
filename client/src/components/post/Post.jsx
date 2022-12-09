@@ -17,7 +17,7 @@ export default function Post({post}) {
         <div className="postInfo">
             <div className="postCats">
             <Link  to={`/?cat=${post.categories}`} style={{textDecoration:"none", color:"inherit"}}>
-              <li className="sidebarListItem">{post.categories}</li>
+              <span className="postCategories">{post.categories}</span>
             </Link>
             </div>
             <Link to = {`/post/${post._id}`} className="postLink" style={{textDecoration:"none", color:"inherit"}} >
@@ -26,13 +26,16 @@ export default function Post({post}) {
             </span>
             </Link>
             <Link to={`/?user=${post.username}`} className="link">
-                <b>{post.username}</b>
+              <span className="postUsername">
+                {post.username}
+              </span>
               </Link>
             <span className="postDate">{ new Date(post.createdAt).toDateString()}</span>
+              <p className="postDesc">
+                {post.desc}
+              </p>
         </div>
-        <p className="postDesc">
-          {post.desc}
-        </p>
+        
     </div>
   )
 }
