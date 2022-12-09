@@ -3,6 +3,10 @@
     src: url(../../HARRYP__.TTF)
 }
 
+/* html{
+    background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.9)) ,url("https://c0.wallpaperflare.com/preview/792/954/443/background-burnt-damaged-grunge.jpg");
+} */
+
 #fileInput {
     display: none;
 }
@@ -15,18 +19,22 @@
 
 .writeForm{
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 
 .writeFormGroup{
     margin-left: 150px;
     display: flex;
-    align-items: center;
+    flex-direction: column;
 }
 
 .writeIcon{
     width: 25px;
     height: 25px;
+    margin-right: 15px;
     background-color: #e4dab9;
     display: flex;
     justify-content: center;
@@ -43,7 +51,9 @@
     font-size: 30px;
     border: none;
     padding: 10px;
-    width: 70vw;    
+    width: 70vw;  
+    margin-bottom: 20px;
+    border-radius: 12px;  
 }
 
 
@@ -62,7 +72,7 @@
 
 .writeSubmit{
     position: absolute;
-    top:20px;
+    top:145px;
     right: 50px;
     color: rgb(155, 111, 35);
     background-color: #e4dab9;
@@ -72,10 +82,44 @@
     font-size: 20px;
 }
 
+
+.writeSelectFile{
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+}
+
 .writeImg {
     margin-left: 150px;
     width: 70vw;
     height: 250px;
     border-radius: 10px;
     object-fit: cover;
+}
+
+
+.writeSelectCat {
+    width: 70vw;
+    display: flex;
+    font-size: 30px;
+    justify-content: space-evenly;
+    color: gold;
+    margin-bottom: 20px;
+    font-family: 'Dancing Script', cursive;
+    
+}
+
+.writeRadio {
+}
+
+.writeSelectFilePlease{
+    color: #e4dab9;
+}
+
+.writeSelectCatPlase{
+    margin-top: 15px;
+    width: 70vw;
+    color: #e4dab9;
+    display: flex;
+    justify-content: center;
 }

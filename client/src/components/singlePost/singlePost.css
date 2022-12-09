@@ -40,19 +40,34 @@
 .singlePostInfo {
     margin-bottom: 20px;
     display: flex;
-    justify-content: space-between;
     font-size: 16px;
     color: #5F021F;
     font-family: 'Yusei Magic', sans-serif;
+    display: flex;
 }
+
 
 
 .singlePostDesc{
     color: #666;
     font-family: 'Yusei Magic', sans-serif;
     font-size: 17px;
-
 }
+
+.singlePostAuthor{
+    flex: 2;
+}
+
+.singlePostCat{
+    flex:5;
+}
+
+.singlePostDate{
+    font-style: italic;
+    margin-right: 10px;
+}
+
+
 
 .singlePostDesc:first-letter{
     margin-left: 20px;

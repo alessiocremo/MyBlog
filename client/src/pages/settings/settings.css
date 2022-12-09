@@ -24,6 +24,11 @@
     justify-content: space-between;
 }
 
+.settingsDeleteAccount{
+    color: red;
+    cursor: pointer;
+}
+
 .settingsUpdateTitle,.settingsDeleteTitle{
     font-size: 30px;
     margin-bottom: 20px;
@@ -43,20 +48,19 @@
 }
 
 
-.settingsProfilePicture{
+.settingsPP{
     display: flex;
     align-items: center;
     margin-top: 10px;
     margin-bottom: 10px;
 }
 
-.settingsProfilePictureImg{
-    width: 100px;
-    height: 100px;
-    border: 20%;
-    object-fit: cover;
+.inputError{
+    color: red;
+    font-weight: bold;
+    margin-left: 20px;
+    font-size: 16px;
 }
-
 
 .settingsProfilePictureIcon{
     width: 25px;
@@ -74,7 +78,7 @@
 }
 
 
-.settingsForm > label {
+.settingsInputStep > label {
     font-weight: bold;
     color: rgb(155, 111, 35);
     font-size: 20px;
@@ -99,9 +103,16 @@
 .settingsForm > input {
     border: none;
     border-bottom: 1px solid rgba(165,42,42,0.3);
-    color: grey;
+    color: black;
     margin-top: 10px;
     height: 30px;
     outline: none;
 }
 
+.profilePicture{
+    width: 100px;
+    height: 100px;
+    border-radius: 20%;
+    object-fit: cover;
+
+}

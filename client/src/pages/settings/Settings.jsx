@@ -11,19 +11,74 @@ export default function Settings() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [success, setSuccess] = useState(false);
+  const [noUser, setnoUser] = useState(false);
+  const [noEmail, setnoEmail] = useState(false);
+  const [noPassword, setnoPassword] = useState(false);
 
   const { user, dispatch } = useContext(Context);
   const PF = "http://localhost:5000/images/"
+  
+
+
+  const handleDelete = async(e) =>{
+    e.preventDefault();
+    console.log(user);
+
+    const userToDelete = {
+      userId: user._id,
+      username: user.username,
+    }
+
+    axios.delete("/users/"+user._id, { data: { userId: user._id, username:user.username } })
+    dispatch({ type: "LOGOUT" });
+    // window.location.replace("/")
+
+  }
+
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setSuccess(false);
+    setnoUser(false);
+    setnoEmail(false);
+    setnoPassword(false);
+
+
     dispatch({ type: "UPDATE_START" });
+
+
+    let quit=0;
+
+    if(username===""){
+      setnoUser(true);
+      quit=1;
+    }
+    
+    if(email===""){
+      setnoEmail(true);
+      quit=1;
+    }
+
+    if(password===""){
+      setnoPassword(true);
+      quit=1;
+    }
+
+    if(quit===1){
+      return
+    }
+
     const updatedUser = {
       userId: user._id,
       username,
       email,
       password,
     };
+
+
+
+
     if (file) {
       const data = new FormData();
       const filename = Date.now() + file.name;
@@ -46,14 +101,14 @@ export default function Settings() {
     <div className="settings">
       <div className="settingsWrapper">
         <div className="settingsTitle">
-          <span className="settingsUpdateTitle">Update Your Account</span>
-          <span className="settingsDeleteTitle">Delete Account</span>
+          <span className="settingsUpdateAccount">Update Your Account</span>
+          <span className="settingsDeleteAccount" onClick={handleDelete} >Delete Account</span>
         </div>
         <form className="settingsForm" onSubmit={handleSubmit}>
-          <label>Profile Picture</label>
           <div className="settingsPP">
             <img
               src={file ? URL.createObjectURL(file) : PF+user.profilePicture}
+              className="profilePicture"
               alt=""
             />
             <label htmlFor="fileInput">
@@ -65,23 +120,41 @@ export default function Settings() {
               onChange={(e) => setFile(e.target.files[0])}
             />
           </div>
-          <label>Username</label>
+
+          <div className="settingsInputStep">
+            <label>Username</label>
+            {noUser===true && (<span className="inputError">Empty username</span>)}
+          </div>
           <input
             type="text"
             placeholder={user.username}
             onChange={(e) => setUsername(e.target.value)}
           />
-          <label>Email</label>
+
+          <div className="settingsInputStep">
+            <label>Email</label>
+            {noEmail===true && (<span className="inputError">Empty email</span>)}
+
+          </div>
+
           <input
             type="email"
             placeholder={user.email}
             onChange={(e) => setEmail(e.target.value)}
           />
-          <label>Password</label>
+
+
+          <div className="settingsInputStep">
+            <label>Password</label>
+            {noPassword===true && (<span className="inputError">Empty password</span>)}
+          </div>
+
           <input
             type="password"
             onChange={(e) => setPassword(e.target.value)}
           />
+
+
           <button className="settingsSubmit" type="submit">
             Update
           </button>

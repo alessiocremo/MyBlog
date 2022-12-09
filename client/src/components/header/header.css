@@ -18,12 +18,14 @@
 .headerTitleSmall{
     font-family: 'Josefin Sans', sans-serif;
     position: absolute;
-    top: 21%;
+    white-space: nowrap;
+    top: 200px;
     font-size: 25px;
 }
 
 .headerTitleLarge {
     font-family: hpfont;
+    white-space: nowrap;
     position: absolute;
     top:10%;
     font-size: 100px;

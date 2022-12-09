@@ -49,6 +49,8 @@ router.delete("/:id", async (req,res) =>{
         }
     }
     else {
+      console.log(req.params)
+      console.log(req.body)
         res.status(401).json("you can delete only your account")
     }
    

@@ -17,6 +17,8 @@ export default function SinglePost() {
     const { user } = useContext(Context);
     const [title, setTitle] = useState("");
     const [desc, setDesc] = useState("");
+    const [cat, setCat] = useState("");
+
     const [updateMode, setUpdateMode] = useState(false);
   
     useEffect(() => {
@@ -25,6 +27,7 @@ export default function SinglePost() {
         setPost(res.data);
         setTitle(res.data.title);
         setDesc(res.data.desc);
+        setCat(res.data.categories);
       };
       getPost();
     }, [path]);
@@ -87,13 +90,22 @@ export default function SinglePost() {
             <span className="singlePostAuthor">
               Author:
               <Link to={`/?user=${post.username}`} className="link">
-                <b> {post.username}</b>
+                <b>{post.username}</b>
               </Link>
             </span>
+            
+            <span className="singlePostCat">Category:
+              <Link  to={`/?cat=${post.categories}`} style={{textDecoration:"none", color:"inherit"}}>
+                <b>{cat}</b>
+              </Link>
+            </span>
+
             <span className="singlePostDate">
               {new Date(post.createdAt).toDateString()}
             </span>
+            
           </div>
+
           {updateMode ? (
             <textarea
               className="singlePostDescInput"
@@ -113,6 +125,3 @@ export default function SinglePost() {
     );
   }
 
-
-// singlePostIcon fa-solid fa-wand-sparkles
-// singlePostIcon fa-solid fa-trash
