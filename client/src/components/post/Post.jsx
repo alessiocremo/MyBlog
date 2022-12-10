@@ -11,9 +11,12 @@ export default function Post({post}) {
 
   return (
     <div className="post">
-      {post.photo && (
-        <img className="postImg" src={PF + post.photo} alt="" />
-      )}
+      <Link to = {`/post/${post._id}`} className="postLink" style={{textDecoration:"none", color:"inherit"}} >
+        {post.photo && (
+          <img className="postImg" src={PF + post.photo} alt="" />
+        )}
+      </Link>
+      
         <div className="postInfo">
             <div className="postCats">
             <Link  to={`/?cat=${post.categories}`} style={{textDecoration:"none", color:"inherit"}}>

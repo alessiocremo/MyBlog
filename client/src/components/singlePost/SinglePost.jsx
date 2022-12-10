@@ -18,7 +18,7 @@ export default function SinglePost() {
     const [title, setTitle] = useState("");
     const [desc, setDesc] = useState("");
     const [cat, setCat] = useState("");
-    const defaultTitle=user.username + "'s post"
+    const defaultTitle="Untitled Post"
 
 
     const [updateMode, setUpdateMode] = useState(false);
@@ -35,6 +35,7 @@ export default function SinglePost() {
     }, [path]);
   
     const handleDelete = async () => {
+      
       try {
         await axios.delete(`/posts/${post._id}`, {
           data: { username: user.username },
