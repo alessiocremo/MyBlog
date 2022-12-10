@@ -14,6 +14,7 @@ import Settings from "./pages/settings/Settings.jsx";
 import Single from "./pages/single/Single.jsx";
 import Write from "./pages/write/Write.jsx";
 import { Context } from "./context/Context";
+import Contacts from "./pages/contacts/Contacts.jsx";
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
       <TopBar/>
       <Routes>
         <Route exact path='/' element ={<Home/>}/>
+        <Route exact path='/contacts' element ={<Contacts/>}/>
         <Route path='/register' element ={user ? <Home/> : <Register/>}/>
         <Route path='/login' element ={user ? <Home/> :<Login/>}/>
         <Route path='/write' element ={user ? <Write/> : <Login/>}/>

@@ -29,7 +29,7 @@ export default function TopBar() {
                     <Link className="topBarLink" to="/"  style={{textDecoration:"none", color:"inherit"}}  >ABOUT </Link>
                   </li>
                   <li className="topListItem">
-                    <Link className="topBarLink" to="/"  style={{textDecoration:"none", color:"inherit"}}  >CONTACT </Link>
+                    <Link className="topBarLink" to="/contacts"  style={{textDecoration:"none", color:"inherit"}}  >CONTACTS </Link>
                   </li>
                   <li className="topListItem">
                     <Link className="topBarLink" to="/write"  style={{textDecoration:"none", color:"inherit"}}  >WRITE </Link>

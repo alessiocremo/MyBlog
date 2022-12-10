@@ -6,6 +6,7 @@
 
 .header {
     margin-top: 60px;
+    
 }
 
 .headerTitles {
@@ -19,7 +20,7 @@
     font-family: 'Josefin Sans', sans-serif;
     position: absolute;
     white-space: nowrap;
-    top: 200px;
+    top: 10%;
     font-size: 25px;
 }
 
@@ -27,7 +28,7 @@
     font-family: hpfont;
     white-space: nowrap;
     position: absolute;
-    top:10%;
+    top:4%;
     font-size: 100px;
 }
 

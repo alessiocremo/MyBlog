@@ -31,9 +31,9 @@ export default function Post({post}) {
               </span>
               </Link>
             <span className="postDate">{ new Date(post.createdAt).toDateString()}</span>
-              <p className="postDesc">
+              <div className="postDesc">
                 {post.desc}
-              </p>
+              </div>
         </div>
         
     </div>

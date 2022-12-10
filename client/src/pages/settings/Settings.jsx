@@ -14,6 +14,8 @@ export default function Settings() {
   const [noUser, setnoUser] = useState(false);
   const [noEmail, setnoEmail] = useState(false);
   const [noPassword, setnoPassword] = useState(false);
+  const [shortPassword, setshortPassword] = useState(false);
+
 
   const { user, dispatch } = useContext(Context);
   const PF = "http://localhost:5000/images/"
@@ -22,17 +24,18 @@ export default function Settings() {
 
   const handleDelete = async(e) =>{
     e.preventDefault();
-    console.log(user);
+
 
     const userToDelete = {
       userId: user._id,
       username: user.username,
     }
 
+
+    
     axios.delete("/users/"+user._id, { data: { userId: user._id, username:user.username } })
     dispatch({ type: "LOGOUT" });
     // window.location.replace("/")
-
   }
 
 
@@ -43,6 +46,7 @@ export default function Settings() {
     setnoUser(false);
     setnoEmail(false);
     setnoPassword(false);
+    setshortPassword(false);
 
 
     dispatch({ type: "UPDATE_START" });
@@ -63,6 +67,15 @@ export default function Settings() {
     if(password===""){
       setnoPassword(true);
       quit=1;
+    }
+
+
+    if(password.length<6){
+      if(noPassword===true){
+        setshortPassword(true);
+        quit=1;
+      }
+
     }
 
     if(quit===1){
@@ -121,50 +134,63 @@ export default function Settings() {
             />
           </div>
 
-          <div className="settingsInputStep">
-            <label>Username</label>
-            {noUser===true && (<span className="inputError">Empty username</span>)}
+          <div className="settingsSteps">
+
+            <div className="settingsInputStep">
+              <label>Username</label>
+              {noUser===true && (<span className="inputError">Empty username</span>)}
+            </div>
+            <input
+              type="text"
+              id="credentialsInput"
+              defaultValue={user.username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+
+            <div className="settingsInputStep">
+              <label>Email</label>
+              {noEmail===true && (<span className="inputError">Empty email</span>)}
+
+            </div>
+
+            <input
+              type="email"
+              id="credentialsInput"
+              defaultValue={user.email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+
+
+            <div className="settingsInputStep">
+              <label>Password</label>
+              {noPassword===true && (<span className="inputError">Empty password</span>)}
+              {shortPassword===true && (<span className="inputError">Password must be at least 6 characters long</span>)}
+
+            </div>
+
+            <input
+              type="password"
+              id="credentialsInput"
+              onChange={(e) => setPassword(e.target.value)}
+            />
+
+            <div className="settingsSubmit">
+
+            </div>
+
+            <button className="settingsFormSubmit" type="submit">
+              Update
+            </button>
+            {success && (
+              <span
+                style={{ color: "green", textAlign: "center", marginTop: "20px" }}
+              >
+                Profile has been updated...
+              </span>
+            )}
+            
           </div>
-          <input
-            type="text"
-            placeholder={user.username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
 
-          <div className="settingsInputStep">
-            <label>Email</label>
-            {noEmail===true && (<span className="inputError">Empty email</span>)}
-
-          </div>
-
-          <input
-            type="email"
-            placeholder={user.email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-
-
-          <div className="settingsInputStep">
-            <label>Password</label>
-            {noPassword===true && (<span className="inputError">Empty password</span>)}
-          </div>
-
-          <input
-            type="password"
-            onChange={(e) => setPassword(e.target.value)}
-          />
-
-
-          <button className="settingsSubmit" type="submit">
-            Update
-          </button>
-          {success && (
-            <span
-              style={{ color: "green", textAlign: "center", marginTop: "20px" }}
-            >
-              Profile has been updated...
-            </span>
-          )}
         </form>
       </div>
       <Sidebar />

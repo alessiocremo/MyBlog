@@ -1,7 +1,6 @@
 .singlePost {
     flex:9;
     background-color: rgba(228,218,185,0.3);
-
 }
 
 .singlePostWrapper {
@@ -91,11 +90,35 @@
     font-family: "Lora", serif;
     font-size: 28px;
     text-align: center;
+    justify-content: center;
+    align-self: center;
     border: none;
     color: gray;
     border-bottom: 1px solid lightgray;
   }
   
   .singlePostTitleInput:focus {
+      outline: none;
+}
+
+
+.singlePostInput{
+    font-size: 30px;
+    border: none;
+    padding: 10px;
+    width: 70vw;  
+    margin-bottom: 20px;
+    border-radius: 12px;  
+}
+
+.singlePostText{
+    font-size: 18px;
+    width: 70vw;    
+    height: 100vh;
+    resize: none;
+}
+
+.singlePostInput:focus {
     outline: none;
-  }
+}
+

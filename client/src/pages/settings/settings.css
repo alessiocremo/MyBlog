@@ -44,15 +44,16 @@
 
 .settingsForm{
     display: flex;
-    flex-direction: column;
 }
 
 
 .settingsPP{
     display: flex;
     align-items: center;
-    margin-top: 10px;
+    margin-top: 120px;
+    margin-left: 20px;
     margin-bottom: 10px;
+    flex: 6;
 }
 
 .inputError{
@@ -63,10 +64,10 @@
 }
 
 .settingsProfilePictureIcon{
-    width: 25px;
-    height: 25px;
+    width: 35px;
+    height: 35px;
     border-radius: 50%;
-    margin-left: 10px;
+    margin-left: 15px;
     background-color: #e4dab9;
     color: rgb(155, 111, 35);
     border-radius: 10px;
@@ -91,8 +92,8 @@
     color: rgb(155, 111, 35);
     font-weight: bold;
     border: 1px solid brown;
-    margin-top: 90px;
-    align-self: center;
+    margin-top: 10px;
+    align-self: flex-start;
     width: 80px;
     border-radius: 10px;
     padding-top: 5px;
@@ -100,7 +101,18 @@
     cursor: pointer;
 }
 
-.settingsForm > input {
+
+.profilePicture{
+    width: 250px;
+    height: 250px;
+    border-radius: 10%;
+    object-fit: cover;
+}
+
+#credentialsInput{
+    color: rgb(94, 67, 21);
+    margin-bottom: 25px;
+    width: 300px;
     border: none;
     border-bottom: 1px solid rgba(165,42,42,0.3);
     color: black;
@@ -109,10 +121,8 @@
     outline: none;
 }
 
-.profilePicture{
-    width: 100px;
-    height: 100px;
-    border-radius: 20%;
-    object-fit: cover;
-
+.settingsSteps{
+    flex: 6;
+    align-self: center;
+    margin-top: 120px;
 }

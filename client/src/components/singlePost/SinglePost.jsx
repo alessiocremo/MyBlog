@@ -18,6 +18,8 @@ export default function SinglePost() {
     const [title, setTitle] = useState("");
     const [desc, setDesc] = useState("");
     const [cat, setCat] = useState("");
+    const defaultTitle=user.username + "'s post"
+
 
     const [updateMode, setUpdateMode] = useState(false);
   
@@ -42,6 +44,20 @@ export default function SinglePost() {
     };
   
     const handleUpdate = async () => {
+
+      if(title===""){
+        try {
+          await axios.put(`/posts/${post._id}`, {
+            username: user.username,
+            title: defaultTitle,
+            desc,
+          });
+          // window.location.reload()
+          setUpdateMode(false);
+          return;
+        } catch (err) {}
+     }
+
       try {
         await axios.put(`/posts/${post._id}`, {
           username: user.username,
@@ -63,7 +79,7 @@ export default function SinglePost() {
             <input
               type="text"
               value={title}
-              className="singlePostTitleInput"
+              className="singlePostInput"
               autoFocus
               onChange={(e) => setTitle(e.target.value)}
             />
@@ -108,9 +124,10 @@ export default function SinglePost() {
 
           {updateMode ? (
             <textarea
-              className="singlePostDescInput"
+              className='writeInput writeText'
               value={desc}
               onChange={(e) => setDesc(e.target.value)}
+              
             />
           ) : (
             <p className="singlePostDesc">{desc}</p>

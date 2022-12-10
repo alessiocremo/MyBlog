@@ -10,6 +10,8 @@
     border-radius: 10px;
     display: flex;
     flex-direction: column;
+    background: linear-gradient(rgba(255, 255, 240, 0.5),rgba(255,255,240,0.9));
+    
 }
 
 .sidebarItem {
@@ -37,6 +39,8 @@
 
 .sidebarImg{
     margin-top: 15px;
+    width: 200px;
+    height: 200px;
 }
 
 .sidebarAboutMeParagraph{
