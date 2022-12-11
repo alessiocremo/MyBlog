@@ -1,17 +1,26 @@
 import "./topbar.css"
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../../context/Context";
+import axios from "axios";
 
 
 
 export default function TopBar() {
     const PF = "http://localhost:5000/images/"
     const { user, dispatch } = useContext(Context);
+
+    const [search, setSearch] = useState("")
+
+
+    
+
     const handleLogout = () => {
       dispatch({ type: "LOGOUT"})
       window.location.replace("/")
     }
+
+
 
     return (
       <div className="top">
@@ -25,9 +34,9 @@ export default function TopBar() {
                   <li className="topListItem">
                     <Link className="topBarLink" to="/"  style={{textDecoration:"none", color:"inherit"}}  >HOME </Link>
                   </li>
-                  <li className="topListItem">
+                  {/* <li className="topListItem">
                     <Link className="topBarLink" to="/"  style={{textDecoration:"none", color:"inherit"}}  >ABOUT </Link>
-                  </li>
+                  </li> */}
                   <li className="topListItem">
                     <Link className="topBarLink" to="/contacts"  style={{textDecoration:"none", color:"inherit"}}  >CONTACTS </Link>
                   </li>
@@ -59,8 +68,15 @@ export default function TopBar() {
                         </li>
                     </ul>
             ) }
-              <i className="topSearchIcon fa-solid fa-magnifying-glass"></i>
+            <div className="topSearch">
+            <input type="text" placeholder="Search user..." name="" id="topSearchBar" onChange={e=>setSearch(e.target.value)}></input>
+                  <Link classname="link" to={`/?user=${search}`} >
+                    <button type=""><i class="topSearchIcon fa-solid fa-magnifying-glass"></i></button>
+                  </Link>
+            </div>
           </div>
       </div>
     )
 }
+
+// onSubmit={handleSearch}

@@ -36,7 +36,7 @@ export default function Register() {
             <label><span>Username</span></label>
             <input type="text" className="registerInput" placeholder='Enter your username...' onChange={e=>setUsername(e.target.value)} />
             <label><span>Email</span></label>
-            <input type="text" className="registerInput" placeholder='Enter your email...' onChange={e=>setEmail(e.target.value)} />
+            <input type="email" className="registerInput" placeholder='Enter your email...' onChange={e=>setEmail(e.target.value)} />
             <label><span>Password</span></label>
             <input type="password" className='registerInput' placeholder='Enter your password...' onChange={e=>setPassword(e.target.value)} />
             <button className="registerButton">Register</button>

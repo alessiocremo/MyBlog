@@ -35,7 +35,6 @@ export default function SinglePost() {
     }, [path]);
   
     const handleDelete = async () => {
-      
       try {
         await axios.delete(`/posts/${post._id}`, {
           data: { username: user.username },
@@ -73,9 +72,9 @@ export default function SinglePost() {
     return (
       <div className="singlePost">
         <div className="singlePostWrapper">
-          {post.photo && (
+          <div className="postImg">
             <img src={PF + post.photo} alt="" className="singlePostImg" />
-          )}
+          </div>
           {updateMode ? (
             <input
               type="text"

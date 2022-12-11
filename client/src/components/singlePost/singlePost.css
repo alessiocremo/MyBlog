@@ -1,6 +1,7 @@
 .singlePost {
     flex:9;
     background-color: rgba(228,218,185,0.3);
+
 }
 
 .singlePostWrapper {
@@ -9,11 +10,17 @@
 }
 
 
+
 .singlePostImg {
-    width: 100%;
-    height: 300px;
+    width: 385px;
+    height: 280px;
     border-radius: 5px;
     object-fit: cover;
+}
+
+.postImg{
+    display: flex;
+    justify-content: center;
 }
 
 .singlePostTitle{

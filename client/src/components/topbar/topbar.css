@@ -80,5 +80,14 @@
     font-size: 18;
     color: #666;
     cursor: pointer;
-    margin-left: 15px;
+    padding: 3px;
+}
+
+.topSearch{
+    display: flex;
+}
+
+#topSearchBar{
+    margin-left: 10px;
+    width: 150px;
 }

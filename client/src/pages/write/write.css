@@ -90,8 +90,8 @@
 
 .writeImg {
     margin-left: 150px;
-    width: 70vw;
-    height: 250px;
+    width: 385px;
+    height: 280px;
     border-radius: 10px;
     object-fit: cover;
 }
@@ -100,7 +100,7 @@
 .writeSelectCat {
     width: 70vw;
     display: flex;
-    font-size: 30px;
+    font-size: 24px;
     justify-content: space-evenly;
     color: gold;
     margin-bottom: 20px;

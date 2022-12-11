@@ -66,6 +66,7 @@ export default function Settings() {
 
     if(password===""){
       setnoPassword(true);
+      setshortPassword(true);
       quit=1;
     }
 
