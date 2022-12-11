@@ -65,7 +65,7 @@
 }
 
 .singlePostCat{
-    flex:5;
+    flex:3;
 }
 
 .singlePostDate{
@@ -129,3 +129,15 @@
     outline: none;
 }
 
+
+.singlePostButton {
+    background-color: aquamarine;
+    position: absolute;
+    flex: 2;
+    border: 3px solid black;
+    font-weight: bold;
+}
+
+.spButton {
+    flex: 1;
+}

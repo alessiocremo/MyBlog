@@ -114,7 +114,16 @@ export default function SinglePost() {
               <Link  to={`/?cat=${post.categories}`} style={{textDecoration:"none", color:"inherit"}}>
                 <b>{cat}</b>
               </Link>
+              
             </span>
+            <span className="spButton">
+              {updateMode && (
+              <button className="singlePostButton" onClick={handleUpdate}>
+                Update
+              </button>
+              )}
+            </span>
+            
 
             <span className="singlePostDate">
               {new Date(post.createdAt).toDateString()}
@@ -131,11 +140,6 @@ export default function SinglePost() {
             />
           ) : (
             <p className="singlePostDesc">{desc}</p>
-          )}
-          {updateMode && (
-            <button className="singlePostButton" onClick={handleUpdate}>
-              Update
-            </button>
           )}
         </div>
       </div>

@@ -104,9 +104,13 @@ export default function Settings() {
       } catch (err) {}
     }
     try {
+      
       const res = await axios.put("/users/" + user._id, updatedUser);
       setSuccess(true);
       dispatch({ type: "UPDATE_SUCCESS", payload: res.data });
+
+      
+
     } catch (err) {
       dispatch({ type: "UPDATE_FAILURE" });
     }
