@@ -91,6 +91,29 @@ export default function Settings() {
     };
 
 
+    console.log(user.username)
+    const postsToUpdate = await axios.get("/posts/", {params:{user: user.username},});
+    console.log(postsToUpdate)    //we get the right posts
+    console.log(postsToUpdate.data)
+    console.log(postsToUpdate.data[0]._id);
+
+    for (let i=0; i < postsToUpdate.data.length; i++){
+      await axios.put(`/posts/${postsToUpdate.data[i]._id}`, {
+        username: updatedUser.username,
+        updated: 1,
+      });
+    }
+
+    // for (let ptu in postsToUpdate.data) {
+    //   console.log(ptu);
+    //   // // await axios.put(`/posts/${ptu._id}`, {
+    //   // //   username: updatedUser.username,
+    //   // //   title: ptu.title,
+    //   // //   desc: ptu.desc,
+    //   // // });
+    // }
+    //_id   title   desc:   photo:    username
+
 
 
     if (file) {

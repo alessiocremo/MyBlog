@@ -13,11 +13,15 @@ router.post("/", async (req, res) => {
   }
 });
 
+
+//UPDATE JUST NAME OF THE POST
+
+
 //UPDATE POST
 router.put("/:id", async (req, res) => {
   try {
     const post = await Post.findById(req.params.id);
-    if (post.username === req.body.username) {
+    if (post.username === req.body.username || req.body.updated === 1) {
       try {
         const updatedPost = await Post.findByIdAndUpdate(
           req.params.id,
