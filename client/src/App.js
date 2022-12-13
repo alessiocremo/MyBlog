@@ -18,6 +18,7 @@ import Contacts from "./pages/contacts/Contacts.jsx";
 
 
 function App() {
+  localStorage.removeItem(user);
   const { user } = useContext(Context);
   return (
     <BrowserRouter>
